@@ -1,192 +1,247 @@
 <div align="center">
-  <img src="logo.png" alt="HackZen logo" width="150" />
+  <img src="logo.png" alt="HackZen logo" width="152" />
   <h1>HackZen</h1>
   <p><strong>Geometry Dash, but make it zen.</strong></p>
-  <p>Clean tools. Smooth UI. Zero boring menus.</p>
+  <p>Fast tools, clean UI, smart practice, and zero menu clutter.</p>
   <p>
-    <a href="https://geode-sdk.org/install"><img src="https://img.shields.io/badge/Install-Geode-7c5cff?style=for-the-badge" alt="Install Geode" /></a>
-    <a href="https://github.com/Nail120212/HackZen/releases"><img src="https://img.shields.io/badge/Download-HackZen-25d695?style=for-the-badge" alt="Download HackZen" /></a>
-    <img src="https://img.shields.io/badge/version-v2.0.0--alpha-f5c451?style=for-the-badge" alt="HackZen v2.0 Alpha" />
+    <a href="https://geode-sdk.org/install"><img src="https://img.shields.io/badge/INSTALL-GEODE-7c5cff?style=for-the-badge&labelColor=11131a" alt="Install Geode" /></a>
+    <a href="https://github.com/Nail120212/HackZen/releases/tag/v2.0.1-alpha"><img src="https://img.shields.io/badge/DOWNLOAD-v2.0.1--alpha-25d695?style=for-the-badge&labelColor=11131a" alt="Download HackZen v2.0.1 Alpha" /></a>
+    <img src="https://img.shields.io/badge/GEODE-5.11.2-f5c451?style=for-the-badge&labelColor=11131a" alt="Geode 5.11.2" />
   </p>
 </div>
 
-HackZen is a themeable Geometry Dash mod menu with a draggable round logo, fast practice tools, replay bots, Groq/OpenRouter AI autoplay, HUD controls, custom themes, and a whole lot of tiny quality-of-life wins.
+> **HackZen v2.0.1 Alpha is a private-build, install-only release.** This public repository contains documentation and artwork only. No source code or source archive is published here.
 
-> **Alpha heads-up:** HackZen v2.0 is still being tuned. Back up your settings, expect a few rough edges, and do not use gameplay-changing tools for legitimate leaderboard submissions.
+HackZen is a themeable Geometry Dash mod menu built around a draggable round logo. It combines practice helpers, speed and click tools, replay macros, AI autoplay, local vision assistance, HUD overlays, and a highly customizable interface in one compact menu.
 
-## Install in two minutes
+## Install
+
+### Recommended: install through Geode
 
 1. Install [Geode](https://geode-sdk.org/install) for your Geometry Dash version.
-2. Open the [HackZen Releases page](https://github.com/Nail120212/HackZen/releases).
-3. Download `ianangelo.cheatmenu.geode` from the latest release.
-4. Drop it into your Geode `mods` folder.
-5. Launch Geometry Dash and tap the round HackZen logo in a level.
+2. Open Geometry Dash and tap the Geode button on the main menu.
+3. Open the **Download** tab and search for HackZen when the mod listing is available.
+4. Install HackZen, then restart the game if Geode asks you to.
 
-No compiler. No SDK setup. No source archive. Just install Geode, drop in HackZen, and play.
+### Manual: install the release package
 
-## The v2.0 layout
+1. Install Geode first.
+2. Download [`ianangelo.cheatmenu.geode`](https://github.com/Nail120212/HackZen/releases/tag/v2.0.1-alpha).
+3. Place the `.geode` file in your Geometry Dash `geode/mods` folder.
+4. Launch the game and tap the round HackZen logo.
 
-HackZen keeps things simple: five big tabs on the left, quick sub-tabs across the top, and the controls where you actually expect them.
+Geode’s official FAQ documents the manual `.geode` installation path and its built-in mod browser. If HackZen causes a startup problem, use Geode Safe Mode to launch without mods, then remove or disable it.
 
-- **Main** — Cheats, Speed, and Click.
-- **Player** — Respawn, Practice, and Visuals.
-- **Bots** — Bot, AI, and Models.
-- **Misc** — Tools and About.
-- **Settings** — HUD, Labels, Theme, Options, and Icon.
+## What is new in v2.0.1 Alpha
+
+- **AI Vision** adds local sensor rays around the player. Clear paths, blocks, and hazards are shown with different colors.
+- **Reflex Assist** can react locally to nearby hazards while the selected model plans further ahead.
+- **AI Learning** remembers death spots per level, classifies the mistake, and adjusts future reflex timing.
+- **Replay input** now follows Geometry Dash’s own input path for more reliable dual, orb, and buffered-input playback.
+- **UI polish** brings higher-resolution icons, themed switches, rounded cards, bordered controls, cleaner tabs, and refreshed palettes.
+- **Safer menu behavior** closes HackZen when the level-complete or pause screen takes over.
+
+## The menu at a glance
+
+<div align="center">
+  <img src="resources/icon-home.png" alt="Main" width="48" />
+  <img src="resources/icon-user.png" alt="Player" width="48" />
+  <img src="resources/icon-bot.png" alt="Bots" width="48" />
+  <img src="resources/icon-ellipsis.png" alt="Misc" width="48" />
+  <img src="resources/icon-settings.png" alt="Settings" width="48" />
+</div>
+
+HackZen uses five main tabs with focused sub-tabs:
+
+- **Main** — Cheats, Speed, Click
+- **Player** — Respawn, Practice, Visuals
+- **Bots** — Bot, AI, Vision, Models
+- **Misc** — Tools, About
+- **Settings** — HUD, Labels, Theme, Options, Icon
 
 ## Features, explained one by one
 
-### Main → Cheats
+<details open>
+<summary><strong>Main → Cheats</strong></summary>
 
-- **Noclip** — Ignore collision so you can test a route without instantly exploding.
-- **Infinite Jump** — Jump again when you need a little extra control.
-- **Safe Mode** — Keeps assisted completions marked as practice-style activity.
-- **Unlock Icons** — Lets you preview and use locked icon options locally.
-- **Auto Kill** — Ends the run at your chosen percentage when enabled.
-- **Noclip Acc Limit** — Stops a noclip run when accuracy drops under your limit.
-- **Show Hitboxes** — Makes collision boxes visible for testing tight timings.
-- **No Death Effect** — Removes the death effect clutter.
-- **Noclip Flash** — Adds a visual signal when noclip blocks a hit.
-- **Hide UI** — Clears extra interface elements for a cleaner view.
+- **Noclip** — Ignore collisions for route testing.
+- **Infinite Jump** — Add extra jump control while experimenting.
+- **Safe Mode** — Keep assisted gameplay clearly separated from normal play.
+- **Unlock Icons** — Preview locked icon options locally.
+- **Auto Kill** — End a run at a chosen percentage.
+- **Noclip Accuracy Limit** — Stop an assisted run when accuracy drops below your limit.
+- **Show Hitboxes** — Make collision areas visible for timing checks.
+- **No Death Effect** — Reduce visual clutter during repeated attempts.
+- **Noclip Flash** — Show when a blocked collision occurs.
+- **Hide UI** — Clear extra interface elements for a cleaner view.
 
-### Main → Speed
+</details>
 
-- **Speedhack** — Adjust the game speed from slow practice pacing to faster testing.
-- **Only In Levels** — Keeps speed changes out of menus and non-level screens.
-- **Presets** — Jump between common speed values instead of dragging forever.
-- **FPS Cap** — Cycle through Off, 60, 120, 144, 240, and 360 FPS targets.
+<details>
+<summary><strong>Main → Speed</strong></summary>
 
-### Main → Click
+- **Speedhack** — Slow down for practice or speed up for testing.
+- **Only In Levels** — Keep speed changes out of menus.
+- **Speed presets** — Jump to common values quickly.
+- **FPS Cap** — Cycle through Off, 60, 120, 144, 240, and 360.
 
-- **Swift Click** — Hold the screen and let HackZen repeat jump input at your chosen CPS.
-- **Auto Click** — Set a hold timer and release timer for repeat input without button mashing.
+</details>
 
-### Player → Respawn
+<details>
+<summary><strong>Main → Click</strong></summary>
 
-- **Instant Restart** — Restart immediately instead of waiting through the normal death delay.
-- **Respawn Delay** — Add a small delay when instant restart feels too aggressive.
-- **Confirm Restart** — Ask before restarting so accidental taps do not wipe a run.
+- **Swift Click** — Hold the screen and repeat jump input at a chosen CPS.
+- **Auto Click** — Configure hold and release timing for repeat input.
+
+</details>
+
+<details>
+<summary><strong>Player → Respawn</strong></summary>
+
+- **Instant Restart** — Remove the normal death delay.
+- **Respawn Delay** — Add a controlled delay when instant restart feels too fast.
+- **Confirm Restart** — Prevent accidental restarts.
 - **Confirm Exit** — Ask before leaving a level.
 
-### Player → Practice
+</details>
 
-- **Auto Practice** — Automatically start levels in Practice Mode.
-- **Checkpoint tools** — Add checkpoints while Practice Mode is active.
-- **Restart / Practice shortcuts** — Get the common practice actions without hunting through menus.
-- **Reset Stats** — Clear the current run statistics when you want a fresh test.
+<details>
+<summary><strong>Player → Practice</strong></summary>
 
-### Player → Visuals
+- **Auto Practice** — Start levels in Practice Mode automatically.
+- **Checkpoint tools** — Create checkpoints while Practice Mode is active.
+- **Restart and Practice shortcuts** — Keep common practice actions close.
+- **Reset Stats** — Start a clean test without leaving the level.
 
-- **Show Hitboxes** — Keep collision data visible while testing.
+</details>
+
+<details>
+<summary><strong>Player → Visuals</strong></summary>
+
+- **Show Hitboxes** — Inspect collision data.
 - **Hide UI** — Reduce screen noise.
-- **No Death Effect** — Keep the screen readable during repeated attempts.
+- **No Death Effect** — Keep repeated attempts readable.
 - **Noclip Flash** — See exactly when a collision was blocked.
 
-### Bots → Bot
+</details>
 
-- **Record** — Capture your inputs for the current level.
-- **Replay** — Play the saved macro back automatically.
-- **Stop** — End recording or playback immediately.
+<details>
+<summary><strong>Bots → Bot</strong></summary>
+
+- **Record** — Capture inputs for the current level.
+- **Replay** — Play a saved macro back.
+- **Stop** — End recording or replay immediately.
 - **Clear** — Remove the current macro.
-- **Save** — Store one replay file per level name.
-- **Folder** — Open or view the folder where macros live.
-- **Auto Save** — Save recordings automatically when the level ends.
+- **Save** — Store one replay per level name.
+- **Folder** — Open or view the macro location.
+- **Auto Save** — Save recordings when the level ends.
 
-### Bots → AI
+Macros are stored locally. Older macro formats remain supported where compatible.
 
-- **Groq support** — Use a Groq API key and let a chat model plan gameplay actions.
-- **OpenRouter support** — Use OpenRouter models as an alternative provider.
-- **Provider switcher** — Pick Groq or OpenRouter without changing the menu.
+</details>
+
+<details>
+<summary><strong>Bots → AI</strong></summary>
+
+- **Groq** — Use a Groq API key for model-driven gameplay planning.
+- **OpenRouter** — Use OpenRouter as an alternative provider.
+- **Provider switcher** — Change providers without leaving the menu.
 - **Reflex Assist** — React locally to nearby hazards while the model plans ahead.
-- **Non-blocking planning** — The level keeps running while the next AI plan is generated.
-- **Paste / Test** — Paste your key and check the provider connection.
-- **API-key privacy** — Keys stay in local mod save data; never post them in screenshots, issues, or commits.
+- **Non-blocking planning** — Keep the level running while a plan is generated.
+- **Paste and Test** — Paste a key and test the provider connection.
+- **Local learning** — Save per-level lessons and tune reflex timing.
 
-AI mode uses your own provider quota. Groq keys start with `gsk_`; OpenRouter keys start with `sk-or-`. OpenRouter also supports a free-model-only filter.
+AI autoplay is opt-in and uses your own provider quota. Groq keys normally begin with `gsk_`; OpenRouter keys normally begin with `sk-or-`.
 
-### Bots → Models
+</details>
 
-- **Auto (fastest)** — Let HackZen choose a fast available chat model.
-- **Live model list** — Load the models currently offered by your provider.
-- **Model pages** — Browse long model lists without a giant dropdown.
-- **Free-only filter** — Show OpenRouter models marked `:free`.
-- **Custom model ID** — Type a model ID when you already know exactly what you want.
-- **Fallback** — If a selected model disappears, HackZen switches back to Auto.
+<details>
+<summary><strong>Bots → Vision</strong></summary>
 
-### Misc → Tools
+- **Sensor rays** — Scan the space ahead of the player.
+- **Clear / block / hazard colors** — Read the local scene at a glance.
+- **Planned-jump markers** — See upcoming AI actions.
+- **Reflex status ring** — Show thinking, reflex, and holding states.
+- **Vision range** — Adjust how far the sensors look.
 
-- **Pause In Menu** — Pause gameplay, music, and effects while the menu is open.
-- **Reset Music Vol** — Put music volume back to 100%.
-- **Reset SFX Vol** — Put effects volume back to 100%.
-- **Reset All** — Reset HackZen settings while keeping API keys and selected models.
-- **Close button** — Always get back to the level quickly.
+</details>
 
-### Misc → About
+<details>
+<summary><strong>Bots → Models</strong></summary>
 
-- **Version info** — See the installed HackZen version.
-- **Mod identity** — HackZen keeps the stable Geode ID `ianangelo.cheatmenu` so updates stay connected to the same install.
-- **Quick help** — Read the basic logo, drag, AI, and practice reminders in-game.
+- **Auto (fastest)** — Prefer a fast available model automatically.
+- **Live model lists** — Load current models from the selected provider.
+- **Paged browsing** — Navigate long model lists cleanly.
+- **Free-only filter** — Filter OpenRouter models marked `:free`.
+- **Custom model ID** — Enter a known model ID directly.
+- **Fallback behavior** — Return to Auto when a selected model disappears.
 
-### Settings → HUD
+</details>
 
-- **FPS** — Show current frames per second.
-- **Clock** — Show the current clock.
-- **Level Timer** — Track play time.
-- **Deaths / Hits** — See deaths and blocked hits.
-- **Accuracy** — Track noclip accuracy.
-- **Frames** — Count frames during the run.
-- **Best %** — Show your best progress.
-- **CPS** — Display click speed.
-- **Progress %** — Show level progress.
-- **Level Name** — Show the current level name.
-- **Attempts** — Show attempt count.
+<details>
+<summary><strong>Misc → Tools and About</strong></summary>
 
-### Settings → Labels
+- **Pause In Menu** — Pause gameplay, music, effects, and the HUD timer while the menu is open.
+- **Reset Music Vol** — Restore music volume to 100%.
+- **Reset SFX Vol** — Restore effects volume to 100%.
+- **Reset All** — Reset HackZen settings while keeping API keys and model choices.
+- **Version info** — View the installed build and mod identity.
+- **Stable mod ID** — Updates remain connected to `ianangelo.cheatmenu`.
 
-- **Cheat Label** — Show a small assisted-gameplay status label.
-- **Speed Label** — Show the active speed value.
-- **AI / bot status** — See whether HackZen is recording, replaying, thinking, or using Reflex Assist.
+</details>
 
-### Settings → Theme
+<details>
+<summary><strong>Settings → HUD and Labels</strong></summary>
 
-- **Classic** — The familiar Geometry Dash look.
-- **Crimson** — Red-to-black energy.
-- **Blurple** — Purple-to-blue glow.
-- **Noir** — Black-to-white minimal mode.
-- **Custom gradient** — Choose both gradient colors yourself.
-- **Gradient direction** — Switch between horizontal, vertical, and diagonal.
+- **HUD values** — FPS, clock, level timer, deaths, hits, accuracy, frames, best percentage, CPS, progress, level name, and attempts.
+- **Cheat label** — Show assisted-gameplay status.
+- **Speed label** — Show the current speed value.
+- **AI and bot status** — See recording, replaying, thinking, reflex, and error states.
 
-### Settings → Options
+</details>
 
-- **Glassy** — Give panels a softer glass-like finish.
-- **Light Animations** — Toggle the small UI movement effects.
-- **Sidebar Icons** — Show or hide the left-side tab icons.
-- **Outline Glow** — Add extra edge contrast around the menu.
-- **Menu opacity** — Tune how transparent the menu feels.
-- **Menu scale** — Make the whole interface smaller or larger.
+<details>
+<summary><strong>Settings → Theme and Options</strong></summary>
 
-### Settings → Icon
+- **Themes** — Classic, Crimson, Blurple, Noir, and Custom Gradient.
+- **Gradient direction** — Horizontal, vertical, or diagonal.
+- **Glassy mode** — Soften panels with a glass-like finish.
+- **Light animations** — Toggle small interface motion.
+- **Sidebar icons** — Show or hide tab icons.
+- **Outline glow** — Add extra edge contrast.
+- **Menu opacity and scale** — Tune the interface to your screen.
 
-- **Show Icon** — Show or hide the round in-level logo.
-- **Auto Hide Icon** — Fade it away when you are not using it.
-- **Lock Icon** — Stop accidental dragging.
-- **Hide Menu Button** — Hide the extra menu button when you want only the logo.
-- **Pause In Menu** — Keep the pause behavior synced with the floating icon.
-- **Drag to move** — Drag the round HackZen logo; tap it to open the menu.
+</details>
 
-## AI and privacy, no weird stuff
+<details>
+<summary><strong>Settings → Icon</strong></summary>
 
-AI Autoplay is opt-in. HackZen sends approximate gameplay state and nearby object data to the provider you choose so it can request button actions. Your API key is stored in the mod's local save data and sent to that provider for authentication. Use a key you can revoke, keep your provider quota in mind, and do not share it publicly.
+- **Round draggable logo** — Drag to move it and tap to open HackZen.
+- **Show / hide icon** — Keep the logo visible only when you want it.
+- **Auto Hide Icon** — Fade it away when unused.
+- **Lock Icon** — Prevent accidental movement.
+- **Hide Menu Button** — Use the floating logo as the only entry point.
 
-HackZen is not affiliated with RobTop Games, Geometry Dash, Geode, Groq, or OpenRouter.
+</details>
+
+## AI privacy
+
+AI Autoplay is opt-in. When enabled, HackZen sends approximate gameplay state and nearby object information to the provider you choose. Your API key is stored in the mod’s local save data and used for authentication with that provider. Use a revocable key, monitor your quota, and never share it in screenshots, issues, or public posts.
+
+HackZen does not include telemetry or a remote account system. It is not affiliated with RobTop Games, Geometry Dash, Geode, Groq, or OpenRouter.
 
 ## Compatibility
 
-HackZen v2.0.0 Alpha targets Geometry Dash 2.2081 and is built with Geode SDK 5.11.2. Check the [Geode install page](https://geode-sdk.org/install) for current compatibility before updating the game.
+- Geometry Dash target: **2.2081**
+- Geode SDK build: **5.11.2**
+- Release: **v2.0.1 Alpha**
+- Geode mod ID: **`ianangelo.cheatmenu`**
 
-## License and source availability
+Geode notes that major Geometry Dash updates can temporarily require a Geode update. Check the [official Geode install page](https://geode-sdk.org/install) before updating the game.
 
-HackZen is distributed as an installable Geode package through GitHub Releases. This repository does not publish a source ZIP or an open-source license. Do not redistribute, repackage, or claim the mod as your own.
+## Public repository policy
+
+This repository is the public landing page for HackZen. It contains the README, logo, interface artwork, and release links only. The implementation source and build repository are private. Do not redistribute, repackage, or claim the mod as your own.
 
 <div align="center">
   <img src="resources/icon-hackzen.png" alt="HackZen round icon" width="96" />
