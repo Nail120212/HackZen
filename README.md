@@ -5,14 +5,14 @@
   <p>A Geometry Dash utility menu with practice tools, level controls, bots, AI learning, and a clean themed UI.</p>
   <p>
     <a href="https://geode-sdk.org/install"><img src="https://img.shields.io/badge/INSTALL-GEODE-7c5cff?style=for-the-badge&labelColor=11131a" alt="Install Geode" /></a>
-    <a href="https://github.com/Nail120212/HackZen/releases/tag/v2.5.0-alpha"><img src="https://img.shields.io/badge/DOWNLOAD-v2.5--alpha-25d695?style=for-the-badge&labelColor=11131a" alt="Download HackZen v2.5 Alpha" /></a>
+    <a href="https://github.com/Nail120212/HackZen/releases/tag/v2.6.0-alpha"><img src="https://img.shields.io/badge/DOWNLOAD-v2.6--alpha-25d695?style=for-the-badge&labelColor=11131a" alt="Download HackZen v2.6 Alpha" /></a>
     <img src="https://img.shields.io/badge/GEODE-5.11.2-f5c451?style=for-the-badge&labelColor=11131a" alt="Geode 5.11.2" />
   </p>
 </div>
 
-> **HackZen v2.5 Alpha is an install-only release.** This public repository contains documentation, artwork, notices, and release links only. No implementation source or source archive is published here.
+> **HackZen v2.6 Alpha is an install-only release.** This public repository contains documentation, artwork, notices, and release links only. No implementation source or source archive is published here.
 
-HackZen puts everyday Geometry Dash tools behind one draggable logo. v2.5 expands the menu with dedicated **Level** and **Tools** tabs, a new **Watch & Learn** system for AI-assisted play, more visual and practice controls, and an in-game help bubble that explains what each page does.
+HackZen puts everyday Geometry Dash tools behind one draggable logo. v2.6 replaces the old online AI model flow with a private, offline learning engine. It watches your play, turns nearby geometry into a compact vision grid, and trains a small on-device brain while keeping the same Level, Tools, Effects, and tips-bubble improvements.
 
 ## Install
 
@@ -26,15 +26,15 @@ HackZen puts everyday Geometry Dash tools behind one draggable logo. v2.5 expand
 ### Manual: release package
 
 1. Install Geode first.
-2. Download [`ian.hackzen.geode`](https://github.com/Nail120212/HackZen/releases/tag/v2.5.0-alpha).
+2. Download [`ian.hackzen.geode`](https://github.com/Nail120212/HackZen/releases/tag/v2.6.0-alpha).
 3. Put the `.geode` file in your Geometry Dash `geode/mods` folder.
 4. Launch the game and tap the round HackZen logo.
 
 Geode’s [official FAQ](https://geode-sdk.org/faq) documents both the in-game mod browser and manual `.geode` installation. If a mod prevents startup, use Geode Safe Mode to launch without mods and disable it.
 
-> **Fresh-install note:** v2.5 changes the Geode mod ID to `ian.hackzen`. Older settings under `ianangelo.cheatmenu` are not migrated automatically.
+> **Fresh-install note:** v2.6 changes the Geode mod ID to `ian.hackzen`. Older settings under `ianangelo.cheatmenu` are not migrated automatically.
 
-## v2.5 at a glance
+## v2.6 at a glance
 
 <div align="center">
   <img src="resources/icon-home.png" alt="Main" width="44" />
@@ -138,19 +138,18 @@ These controls are intended for testing, creation, and local experimentation. Av
 
 - **Record / Replay** — Capture and replay inputs for a level.
 - **Save / Folder / Auto Save** — Manage local macros.
-- **Groq / OpenRouter** — Choose an AI provider for autoplay planning.
+- **Engine Play** — Let the local learning engine play after it has learned enough.
 - **Reflex Assist** — React locally to nearby hazards while a model plans ahead.
 - **AI Vision** — Scan nearby blocks and hazards with sensor rays.
 - **Vision overlay** — Show clear paths, blocks, hazards, planned jumps, and status.
-- **Watch & Learn** — Observe your own play and build a shared knowledge base.
-- **Use Learned Policy** — Let the learned policy influence future actions after enough samples exist.
-- **Forget Knowledge** — Clear the shared local knowledge base.
-- **Auto (fastest)** — Prefer a fast available model.
-- **Live model list** — Load current provider models.
-- **Free-only filter** — Filter OpenRouter models marked `:free`.
-- **Custom model ID** — Enter a model ID directly.
+- **Watch & Learn** — Observe your own play and train from your real inputs.
+- **Learn From Own Play** — Improve from survived engine actions and classify deaths as early, late, or missed jumps.
+- **Brain** — Train a compact 152 → 96 → 48 → 1 neural network locally on the device.
+- **Train now / Save brain / Reset brain** — Control training without leaving the menu.
+- **Show Grid** — Display the occupancy grid used by the learning engine.
+- **Reflex fallback** — Use the local spike reflex until the brain has enough samples.
 
-Watch & Learn stores its knowledge locally in `ai/knowledge.txt`. Moves immediately before a death are discarded instead of being copied as good training examples.
+The v2.6 brain stores its data locally in `ai/brain.bin`. No provider key, model download, or internet connection is required. Moves immediately before a death are discarded instead of being copied as good training examples.
 
 </details>
 
@@ -172,15 +171,15 @@ Watch & Learn stores its knowledge locally in `ai/knowledge.txt`. Moves immediat
 
 ## AI privacy
 
-AI features are opt-in. When enabled, HackZen sends approximate gameplay state and nearby object data to the provider you choose. API keys are stored in local mod save data and used for provider authentication. Use a revocable key, monitor your quota, and never share keys in screenshots, issues, or public posts.
+The v2.6 learning engine is local and offline. Gameplay state, occupancy-grid features, training samples, and the saved brain remain in the mod save directory. HackZen does not send gameplay data to a model provider and does not require API keys for its learning features.
 
-HackZen does not include a remote account system or public telemetry service. It is not affiliated with RobTop Games, Geometry Dash, Geode, Groq, OpenRouter, or Eclipse Menu.
+HackZen does not include a remote account system or public telemetry service. It is not affiliated with RobTop Games, Geometry Dash, Geode, or Eclipse Menu.
 
 ## Compatibility
 
 - Geometry Dash target: **2.2081**
 - Geode SDK build: **5.11.2**
-- Release: **v2.5 Alpha**
+- Release: **v2.6 Alpha**
 - Geode mod ID: **`ian.hackzen`**
 
 Geode notes that major Geometry Dash updates can require a Geode update. Check the [official Geode install page](https://geode-sdk.org/install) before updating the game.
