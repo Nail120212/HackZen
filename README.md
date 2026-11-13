@@ -5,14 +5,14 @@
   <p>A Geometry Dash utility menu with practice tools, level controls, bots, AI learning, and a clean themed UI.</p>
   <p>
     <a href="https://geode-sdk.org/install"><img src="https://img.shields.io/badge/INSTALL-GEODE-7c5cff?style=for-the-badge&labelColor=11131a" alt="Install Geode" /></a>
-    <a href="https://github.com/Nail120212/HackZen/releases/tag/v2.6.0-alpha"><img src="https://img.shields.io/badge/DOWNLOAD-v2.6--alpha-25d695?style=for-the-badge&labelColor=11131a" alt="Download HackZen v2.6 Alpha" /></a>
+    <a href="https://github.com/Nail120212/HackZen/releases/tag/v2.7.0-alpha"><img src="https://img.shields.io/badge/DOWNLOAD-v2.7--alpha-25d695?style=for-the-badge&labelColor=11131a" alt="Download HackZen v2.7 Alpha" /></a>
     <img src="https://img.shields.io/badge/GEODE-5.11.2-f5c451?style=for-the-badge&labelColor=11131a" alt="Geode 5.11.2" />
   </p>
 </div>
 
-> **HackZen v2.6 Alpha is an install-only release.** This public repository contains documentation, artwork, notices, and release links only. No implementation source or source archive is published here.
+> **HackZen v2.7 Alpha is an install-only release.** This public repository contains documentation, artwork, notices, and release links only. No implementation source or source archive is published here.
 
-HackZen puts everyday Geometry Dash tools behind one draggable logo. v2.6 replaces the old online AI model flow with a private, offline learning engine. It watches your play, turns nearby geometry into a compact vision grid, and trains a small on-device brain while keeping the same Level, Tools, Effects, and tips-bubble improvements.
+HackZen puts everyday Geometry Dash tools behind one draggable logo. v2.7 adds a Creator workspace, Auto Build, a convolutional Brain with selectable vision sizes, editor integration, and a rebuilt physics-tick clicker. The learning engine remains local and offline, while Auto Build is an optional OpenAI-compatible provider feature.
 
 ## Install
 
@@ -26,15 +26,15 @@ HackZen puts everyday Geometry Dash tools behind one draggable logo. v2.6 replac
 ### Manual: release package
 
 1. Install Geode first.
-2. Download [`ian.hackzen.geode`](https://github.com/Nail120212/HackZen/releases/tag/v2.6.0-alpha).
+2. Download [`ian.hackzen.geode`](https://github.com/Nail120212/HackZen/releases/tag/v2.7.0-alpha).
 3. Put the `.geode` file in your Geometry Dash `geode/mods` folder.
 4. Launch the game and tap the round HackZen logo.
 
 Geode’s [official FAQ](https://geode-sdk.org/faq) documents both the in-game mod browser and manual `.geode` installation. If a mod prevents startup, use Geode Safe Mode to launch without mods and disable it.
 
-> **Fresh-install note:** v2.6 changes the Geode mod ID to `ian.hackzen`. Older settings under `ianangelo.cheatmenu` are not migrated automatically.
+> **Fresh-install note:** v2.7 changes the Geode mod ID to `ian.hackzen`. Older settings under `ianangelo.cheatmenu` are not migrated automatically.
 
-## v2.6 at a glance
+## v2.7 at a glance
 
 <div align="center">
   <img src="resources/icon-home.png" alt="Main" width="44" />
@@ -144,12 +144,13 @@ These controls are intended for testing, creation, and local experimentation. Av
 - **Vision overlay** — Show clear paths, blocks, hazards, planned jumps, and status.
 - **Watch & Learn** — Observe your own play and train from your real inputs.
 - **Learn From Own Play** — Improve from survived engine actions and classify deaths as early, late, or missed jumps.
-- **Brain** — Train a compact 152 → 96 → 48 → 1 neural network locally on the device.
+- **Brain** — Train a convolutional vision network over a four-channel occupancy grid.
+- **Brain sizes** — Choose Standard, Large, or Huge; each size keeps its own local model.
 - **Train now / Save brain / Reset brain** — Control training without leaving the menu.
-- **Show Grid** — Display the occupancy grid used by the learning engine.
+- **Show Vision / Show Grid** — Display sensor rays, grid cells, and confidence around the player.
 - **Reflex fallback** — Use the local spike reflex until the brain has enough samples.
 
-The v2.6 brain stores its data locally in `ai/brain.bin`. No provider key, model download, or internet connection is required. Moves immediately before a death are discarded instead of being copied as good training examples.
+The v2.7 brain stores its data locally in `ai/brain0.bin`, `ai/brain1.bin`, or `ai/brain2.bin`. No provider key or internet connection is required for the learning engine. Moves immediately before a death are discarded instead of being copied as good training examples.
 
 </details>
 
@@ -169,9 +170,19 @@ The v2.6 brain stores its data locally in `ai/brain.bin`. No provider key, model
 
 </details>
 
+## Creator
+
+- **Editor menu** — Open HackZen directly inside the level editor.
+- **Auto Build** — Describe a short section and request an object list from an OpenAI-compatible provider.
+- **Provider presets** — Groq, OpenRouter, OpenAI, or a custom base URL, key, and model.
+- **Validation first** — Object IDs are checked, positions are clamped, and duplicates are rejected before placement.
+- **Undo build** — Remove the objects placed by the most recent build operation.
+
+Auto Build is opt-in. Provider keys and build requests are separate from the offline Brain system. Use a revocable key and never share it in screenshots or public posts.
+
 ## AI privacy
 
-The v2.6 learning engine is local and offline. Gameplay state, occupancy-grid features, training samples, and the saved brain remain in the mod save directory. HackZen does not send gameplay data to a model provider and does not require API keys for its learning features.
+The v2.7 Brain learning engine is local and offline. Gameplay state, occupancy-grid features, training samples, and the saved brain remain in the mod save directory. HackZen does not send gameplay data to a model provider and does not require API keys for its learning features.
 
 HackZen does not include a remote account system or public telemetry service. It is not affiliated with RobTop Games, Geometry Dash, Geode, or Eclipse Menu.
 
@@ -179,7 +190,7 @@ HackZen does not include a remote account system or public telemetry service. It
 
 - Geometry Dash target: **2.2081**
 - Geode SDK build: **5.11.2**
-- Release: **v2.6 Alpha**
+- Release: **v2.7 Alpha**
 - Geode mod ID: **`ian.hackzen`**
 
 Geode notes that major Geometry Dash updates can require a Geode update. Check the [official Geode install page](https://geode-sdk.org/install) before updating the game.
